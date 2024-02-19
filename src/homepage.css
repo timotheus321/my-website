@@ -1,0 +1,35 @@
+/* HomePage.css */
+.home-page {
+    text-align: center;
+    background-image: url('./img/dalle.png'); /* Adjust path as needed */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    position: relative;
+  }
+  
+  .home-page-content {
+    background-color: rgba(0, 0, 0, 0.5); 
+    color: white; 
+    padding: 20px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); 
+  }
+  .home-page-link a {
+    background-image: linear-gradient(to right, #FFD700, #FFA500); /* Gold gradient */
+    color: #4B3F2F; 
+    padding: 12px 24px;
+    border-radius: 5px; 
+    text-decoration: none; 
+    font-weight: bold; 
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); 
+    border: none;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .home-page-link a:hover {
+    transform: translateY(-2px); 
+    box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.3); 
+  }
+  

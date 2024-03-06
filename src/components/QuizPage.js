@@ -1,71 +1,57 @@
 import React, { useState } from 'react';
-import './QuizPage.css'; // Ensure you have this CSS file for styling
-
-const quizQuestions = [
-  {
-    question: "What is the primary benefit of using a linked list over an array?",
-    type: "multipleChoice",
-    options: ["Dynamic size", "Better performance for large datasets", "Easier access to elements", "Fixed size"],
-    answer: "Dynamic size",
-    explanation: "Linked lists are dynamic data structures, meaning they can grow and shrink at runtime by allocating and deallocating memory. This is not possible with arrays, which have a fixed size."
-  },
-  {
-    question: "In a singly linked list, each node contains how many pointers to other nodes?",
-    type: "text",
-    answer: "1",
-    explanation: "Each node in a singly linked list contains exactly one pointer to another node, allowing a sequence of nodes to be formed in a single direction."
-  }
-];
+import quizQuestions from './quizQuestions';
+import './QuizPage.css';
 
 const QuizPage = () => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [isAnswered, setIsAnswered] = useState(false);
-  const [isCorrect, setIsCorrect] = useState(false); // Use this state to track if the answer was correct
-  const [currentExplanation, setCurrentExplanation] = useState('');
+  const [isCorrect, setIsCorrect] = useState(false); // Simplify by tracking correctness directly
+  const [currentKnowledge, setCurrentKnowledge] = useState('');
 
   const handleAnswer = (answer) => {
-    const correct = answer === quizQuestions[currentQuestionIndex].answer;
+    const question = quizQuestions[currentQuestionIndex];
+    const correct = answer === question.answer;
+    setIsCorrect(correct);
     setIsAnswered(true);
-    setIsCorrect(correct); // Update based on whether the user's answer matches the correct answer
-    setCurrentExplanation(quizQuestions[currentQuestionIndex].explanation);
+
+    if (!correct) {
+      // If incorrect, show detailed knowledge including the correct answer
+      setCurrentKnowledge(question.knowledge);
+    } 
   };
 
   const handleNextQuestion = () => {
     if (currentQuestionIndex < quizQuestions.length - 1) {
       setCurrentQuestionIndex(currentQuestionIndex + 1);
-      setIsAnswered(false);
     } else {
-      // Logic to show final results or restart quiz
+      alert("End of Quiz!"); // Placeholder action for end of quiz
     }
+    setIsAnswered(false); // Reset for the next question or quiz restart
+    setCurrentKnowledge(''); // Clear the knowledge for the next question
   };
 
   return (
-    <div>
-      <h2>Quiz on Linked Lists</h2>
-      {!isAnswered ? (
-        <>
-          <p>{quizQuestions[currentQuestionIndex].question}</p>
-          {quizQuestions[currentQuestionIndex].type === "multipleChoice" ? (
-            quizQuestions[currentQuestionIndex].options.map((option, index) => (
-              <button key={index} onClick={() => handleAnswer(option)}>
-                {option}
-              </button>
-            ))
-          ) : (
-            <input
-              type="text"
-              onBlur={(e) => handleAnswer(e.target.value)}
-              placeholder="Type your answer"
-              autoFocus
-            />
-          )}
-        </>
-      ) : (
-        <>
-          <p>{isCorrect ? "Correct!" : "Incorrect."}</p>
-          <p>Explanation: {currentExplanation}</p>
-          <button onClick={handleNextQuestion}>Next Question</button>
-        </>
+    <div className='quiz-container'>
+      <h2>Quiz on Data Structures and Algorithms</h2>
+      <div className='question'>
+        <p>{quizQuestions[currentQuestionIndex].question}</p>
+        <div className='options'>
+          {quizQuestions[currentQuestionIndex].options.map((option, index) => (
+            <button key={index} onClick={() => handleAnswer(option)} className='option-btn'>
+              {option}
+            </button>
+          ))}
+        </div>
+      </div>
+      {isAnswered && (
+        <div className='feedback'>
+          <p>{isCorrect ? "Correct Conjecture! :)" : "Refuted! :0"}</p>
+          <div className='knowledge-base'>
+            <p>Knowledge:</p>
+            <div className='code-example' dangerouslySetInnerHTML={{ __html: currentKnowledge }}></div>
+          </div>
+          <button onClick={handleNextQuestion} className='next-btn'>Next Question</button>
+        </div>
       )}
     </div>
   );

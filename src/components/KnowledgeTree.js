@@ -1,5 +1,7 @@
 // KnowledgeTree.js
 import React from 'react';
+import { Link } from 'react-router-dom';
+//import Quizpage from './QuizPage';
 import '../KnowledgeTree.css'; 
 const KnowledgeTree = () => {
   return (
@@ -16,6 +18,7 @@ const KnowledgeTree = () => {
       <div>
         <h3>Theory of Computation</h3>
         <p>Studies the limits and capabilities of computing. Intersects with Quantum Computing.</p>
+        <Link to="/computer-science">Explore Computer Science</Link>
       </div>
       <div>
         <h3>Theory of Evolution</h3>

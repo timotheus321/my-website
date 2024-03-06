@@ -3,27 +3,28 @@
 class GraphNode {
     constructor(questionId) {
       this.questionId = questionId;
-      this.edges = new Map(); // Key: answer choice, Value: next node (GraphNode)
+      this.edges = {}; // Object to hold edges: { 'correct': nextNodeId, 'incorrect': alternateNextNodeId }
     }
   
-    addEdge(answerChoice, nextNode) {
-      this.edges.set(answerChoice, nextNode);
+    addEdge(condition, nextNodeId) {
+      this.edges[condition] = nextNodeId;
     }
   }
   
   class Graph {
     constructor() {
-      this.nodes = new Map(); // Key: question ID, Value: node (GraphNode)
+      this.nodes = {}; // Object to hold graph nodes
     }
   
     addNode(questionId) {
-      const node = new GraphNode(questionId);
-      this.nodes.set(questionId, node);
-      return node;
+      if (!this.nodes[questionId]) {
+        this.nodes[questionId] = new GraphNode(questionId);
+      }
+      return this.nodes[questionId];
     }
   
     findNode(questionId) {
-      return this.nodes.get(questionId);
+      return this.nodes[questionId];
     }
   }
   

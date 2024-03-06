@@ -1,0 +1,42 @@
+.knowledge-tree {
+    font-family: Arial, sans-serif;
+  }
+  
+  .topics-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .topic-item {
+    margin-bottom: 10px;
+  }
+  
+  .topic-name {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .topic-name:hover {
+    text-decoration: underline;
+  }
+  
+  .topic-description {
+    margin-left: 5px;
+    color: #666;
+  }
+  
+  .sub-topics {
+    list-style-type: none;
+    padding-left: 20px;
+  }
+  
+  .sub-topic-link {
+    color: #28a745; /* A different color to stand out */
+    text-decoration: none;
+  }
+  
+  .sub-topic-link:hover {
+    text-decoration: underline;
+  }
+  

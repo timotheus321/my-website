@@ -1,34 +1,52 @@
-// src/components/QuizGraphContext.js
+// QuizGraphContext.js
 import React, { createContext, useContext, useState } from 'react';
 import { Graph } from './Graph';
-// In QuizGraphContext.js or wherever you need quizQuestions
 import quizQuestions from './quizQuestions';
-
 
 const QuizGraphContext = createContext();
 
 export const QuizGraphProvider = ({ children }) => {
-    const [graph] = useState(() => {
-      const newGraph = new Graph();
-      quizQuestions.forEach((_, index) => {
-        newGraph.addNode(index); // Dynamically add a node for each question
-      });
-      // Dynamically add edges based on your quiz's logic
-      quizQuestions.forEach((_, index) => {
-        if (index < quizQuestions.length - 1) {
-          newGraph.findNode(index).addEdge('correct', index + 1); // Proceed to next question if correct
-          // Add more logic for incorrect answers if needed
-        }
-      });
-      return newGraph;
+  const [graph] = useState(() => {
+    const newGraph = new Graph();
+    // Assuming categorization and difficulty are already embedded in your questions
+    // Initialize graph with starting point
+    newGraph.addNode("start");
+    
+    // Example of dynamically building branches for different categories and difficulties
+    const categories = ["LinkedList", "Array"]; 
+    categories.forEach(category => {
+      quizQuestions
+        .filter(q => q.category === category)
+        .forEach((question, index) => {
+          let nodeId = `${category}-${question.difficulty}-${index}`;
+          newGraph.addNode(nodeId);
+          // Dynamically connect nodes here based on your logic, e.g., next difficulty or category
+          // This is a simplistic approach; you'll need a more sophisticated method to create a meaningful learning path
+        });
+    });
+
+    // Connect start to the first question of each category, as an example
+    categories.forEach(category => {
+      let firstQuestionId = `${category}-1-0`; // Assuming difficulty starts at 1 and index at 0
+      newGraph.findNode("start").addEdge(category, firstQuestionId);
+     
     });
   
-    return (
-      <QuizGraphContext.Provider value={{ graph }}>
-        {children}
-      </QuizGraphContext.Provider>
-    );
-  };
+    return newGraph;
+  });
+
+//   const [userPerformance, setUserPerformance] = useState({
+//     correctAnswers: 0,
+//     totalQuestions: 0,
+//     // Add more metrics as needed
+//   });
   
+
+  return (
+    <QuizGraphContext.Provider value={{ graph }}>
+      {children}
+    </QuizGraphContext.Provider>
+  );
+};
 
 export const useQuizGraph = () => useContext(QuizGraphContext);

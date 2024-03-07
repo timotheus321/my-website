@@ -1,5 +1,7 @@
 const quizQuestions = [
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "What is the primary benefit of using a linked list over an array?",
       options: ["Dynamic size", "Better performance for large datasets", "Easier access to elements", "Fixed size"],
       answer: "Dynamic size",
@@ -17,6 +19,8 @@ const quizQuestions = [
   head.next = new ListNode(2);`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "What is the time complexity of accessing an element by value in a singly linked list?",
       options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
       answer: "O(n)",
@@ -33,6 +37,8 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "In a doubly linked list, each node contains how many references to other nodes?",
       options: ["1", "2", "3", "None"],
       answer: "2",
@@ -47,6 +53,8 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "How can a linked list be used to implement a stack?",
       options: ["By adding and removing elements from the start of the list", "By only allowing access to the last element", "By sorting elements as they are added", "By linking all elements directly to the first node"],
       answer: "By adding and removing elements from the start of the list",
@@ -73,6 +81,8 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "Why are linked lists preferred over arrays for implementing queues?",
       options: ["Faster access time", "Better space utilization", "Efficient insertion and deletion at both ends", "Fixed memory allocation"],
       answer: "Efficient insertion and deletion at both ends",
@@ -105,6 +115,8 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "How does a circular linked list differ from a traditional linked list?",
       options: ["It cannot contain null values", "Its last node points to the first node, forming a loop", "It has a fixed size", "All nodes are connected directly to the head"],
       answer: "Its last node points to the first node, forming a loop",
@@ -131,6 +143,8 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "What advantage does a sentinel node offer in a linked list?",
       options: ["Increases the speed of data access", "Simplifies the code for insertion and deletion", "Prevents data corruption", "Automatically sorts the data"],
       answer: "Simplifies the code for insertion and deletion",
@@ -156,6 +170,8 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "Explain how to detect a cycle in a linked list.",
       options: ["By counting the number of nodes", "Using a hash table to store visited nodes", "By comparing every node with each other", "Using two pointers at different speeds"],
       answer: "Using two pointers at different speeds",
@@ -173,31 +189,92 @@ const quizQuestions = [
   }`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "Who developed the linked list and in which years was it developed?",
       options: ["Allen Newell, Cliff Shaw, and Herbert A. Simon in 1955–1956", "John von Neumann in 1945", "Alan Turing in 1936", "Ada Lovelace in the 1840s"],
       answer: "Allen Newell, Cliff Shaw, and Herbert A. Simon in 1955–1956",
       knowledge: `The linked list data structure was developed in 1955–1956 by Allen Newell, Cliff Shaw, and Herbert A. Simon at RAND Corporation and Carnegie Mellon University as part of the primary data structure for their Information Processing Language (IPL). IPL was one of the first computer languages designed for artificial intelligence research, highlighting the linked list's early role in managing flexible data storage and manipulation.`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "Why was the linked list data structure initially developed?",
       options: ["To enable more efficient use of memory in early computers", "As a solution for the rigid structure of arrays", "To facilitate the development of the Information Processing Language (IPL) for AI research", "To improve the speed of data retrieval in large databases"],
       answer: "To facilitate the development of the Information Processing Language (IPL) for AI research",
       knowledge: `Linked lists were initially developed to facilitate the creation of the Information Processing Language (IPL) for artificial intelligence research by Newell, Shaw, and Simon. The flexible and dynamic nature of linked lists made them ideal for IPL, which required a data structure that could easily adjust to varying data sizes and types, underscoring the linked list's pivotal role in early computing and AI studies.`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "What major computer science advancements have challenged the dominance of linked lists?",
       options: ["The introduction of high-level programming languages", "The invention of database management systems", "Developments in CPU architecture and memory caching techniques", "The creation of the internet and cloud computing technologies"],
       answer: "Developments in CPU architecture and memory caching techniques",
       knowledge: `Developments in CPU architecture and memory caching techniques have challenged the dominance of linked lists for certain applications. Modern processors are optimized for sequential memory access, benefiting from the contiguous memory layout of arrays due to cache efficiency. This has led to a preference for array-based data structures in performance-critical applications, despite linked lists' advantages in dynamic memory allocation and insertion/deletion operations.`
     },
     {
+      category: "LinkedList",
+      difficulty: 1,
       question: "In modern computer science education, why are linked lists still taught despite being considered less optimal for certain applications?",
       options: ["They are simpler to understand than arrays", "Linked lists underpin the implementation of many complex data structures", "Solely for their historical importance", "They are universally more efficient than other data structures"],
       answer: "Linked lists underpin the implementation of many complex data structures",
       knowledge: `Linked lists continue to be a staple in computer science education because they underpin the implementation of many complex data structures, including stacks, queues, and graphs. Understanding linked lists teaches fundamental concepts such as dynamic memory allocation, pointers, and the manipulation of data structures, which are crucial skills for computer science students. This foundational knowledge is essential for grasping more advanced topics in the field.`
     },
-    // Additional questions corrected for factual accuracy and completeness.
+    {
+        category: "LinkedList",
+        difficulty: 2, // Level 2 difficulty question
+        question: "Explain the difference between singly and doubly linked lists.",
+        options: ["Node structure", "Memory usage", "Traversal direction", "All of the above"],
+        answer: "All of the above",
+        knowledge: `In singly linked lists, each node points to the next node in the sequence, while in doubly linked lists, each node has references to both the next and the previous nodes. This difference affects traversal direction—doubly linked lists can be traversed in both directions, while singly linked lists can only be traversed in one direction. Additionally, doubly linked lists generally use more memory than singly linked lists due to the extra pointer.`
+      },
+      // Add more questions with varying difficulties
+      
+  // Continuing from the previously defined quizQuestions array
+
+// Adding Array category questions
+{
+    category: "Array",
+    difficulty: 1,
+    question: "What is the time complexity of accessing an element by index in an array?",
+    options: ["O(1)", "O(log n)", "O(n)", "O(n^2)"],
+    answer: "O(1)",
+    knowledge: `Accessing an element by index in an array is a constant time operation, denoted as O(1). This efficiency comes from the fact that arrays are stored in contiguous memory locations, which allows direct access to any element if its index is known. This contrasts with data structures like linked lists, where accessing an element by value may require traversing the list from the beginning, leading to O(n) time complexity.`
+  },
+  {
+    category: "Array",
+    difficulty: 1,
+    question: "Why might arrays be preferred over linked lists for data that is frequently accessed by index?",
+    options: ["Dynamic resizing", "Efficient memory usage for sparse data", "Constant time access to elements", "Better cache locality and performance"],
+    answer: "Better cache locality and performance",
+    knowledge: `Arrays are often preferred for data that is frequently accessed by index due to their better cache locality and performance. Since arrays store elements in contiguous memory locations, this structure is more likely to benefit from CPU caching mechanisms, making data access faster. In contrast, linked lists have elements scattered throughout memory, leading to potentially more cache misses and slower access times for sequential traversal or access by value.`
+  },
+  {
+    category: "Array",
+    difficulty: 1,
+    question: "How do dynamic arrays (like vectors in C++ or ArrayLists in Java) handle resizing when adding elements beyond their initial capacity?",
+    options: ["They automatically discard the oldest elements", "They stay fixed in size and throw an error", "They allocate a new array with increased size and copy the elements over", "They link to a new array for additional elements"],
+    answer: "They allocate a new array with increased size and copy the elements over",
+    knowledge: `Dynamic arrays, such as vectors in C++ or ArrayLists in Java, handle resizing by allocating a new array with an increased size and copying the elements over from the old array. This process allows for flexible array sizes while maintaining the benefit of contiguous memory storage. However, it incurs a cost in terms of performance during the resizing operation, typically making it an O(n) operation, where n is the number of elements to be copied. This operation is amortized over several insertions, aiming to minimize the frequency of resizing and maintaining an efficient average insertion time.`
+  },
+  {
+    category: "Array",
+    difficulty: 1,
+    question: "What advantage do arrays offer over linked lists in terms of memory usage?",
+    options: ["Arrays require more memory for storage", "Arrays can store elements without additional overhead for pointers", "Linked lists inherently use less memory", "Arrays and linked lists use the same amount of memory"],
+    answer: "Arrays can store elements without additional overhead for pointers",
+    knowledge: `Arrays offer the advantage of storing elements without additional overhead for pointers, making them more memory-efficient for storing a collection of elements when compared to linked lists. In a linked list, each element (node) must also store one or more pointers to other nodes, which increases the memory required per element. This efficiency is particularly notable when storing simple data types like integers or floats, where the overhead of pointers in a linked list can significantly increase the total memory usage.`
+  },
+  
+  // You can continue adding more questions following the same format.
+  
   ];
+//   function getQuestionsByCategory(questions, category) {
+//     return questions.filter(question => question.category === category);
+//   }
   
+//   // Example usage:
+//   const linkedListQuestions = getQuestionsByCategory(quizQuestions, "LinkedList");
+//   const arrayQuestions = getQuestionsByCategory(quizQuestions, "Array");
+
   export default quizQuestions;
-  
